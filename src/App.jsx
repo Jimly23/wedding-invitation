@@ -1,26 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import { bg, cardAkad, cardResepsi, galery1, galery10, galery11, galery12, galery13, galery2, galery3, galery4, galery5, galery6, galery7, galery8, galery9, header, imgAkad, imgAwal, imgMempelai, imgWanita, page1, page2, page3, page4, page5, page6, story1, story2, story3 } from './assets'
-import LandingPage from './components/templates/LandingPage'
-import Akad from './components/templates/Akad'
-import Mempelai from './components/templates/Mempelai'
-import Pertemuan from './components/templates/Pertemuan'
-import Background from './components/templates/Background'
+import { bg, cardAkad, cardResepsi, galery1, galery10, galery11, galery12, galery13, galery2, galery3, galery4, galery5, galery6, galery7, galery8, galery9, galihDanWulan, galihWulan, gift, header, imgAkad, imgAwal, imgMempelai, imgPria, imgWanita, jym, kepada, mandiri, page1, page2, page3, page4, page5, page6, saveTheDate, story1, story2, story3, tamu, theWedding, titleGalery } from './assets'
+
+import sound from './assets/audio/musik.mp3'
 
 function App() {
+
+  const audioRef = useRef(new Audio(sound))
+
   useEffect(()=>{
     Aos.init({duration: 1500});
   }, [])
+
+
+  const [textCopy,setTextCopy] = useState('no rek');
+
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(textCopy).then(() => {
+      alert(textCopy);
+    }).catch(err => {
+      console.error('Gagal menyalin teks: ', err);
+    });
+  };
+
+  const play = () => {
+    audioRef.current.play()
+  }
+
   return(
-    <div className='overflow-x-hidden'>
+    <div onClick={play} className='overflow-x-hidden sm:hidden'>
       <div className="landingpage relative w-screen h-screen">
-        <img src={imgAwal} className='scale-150 xs:scale-130 s:scale-100' />
+        <img src={imgAwal} className='w-full h-full object-cover object-top w-full h-full' />
+        <div className="absolute top-0 w-full h-full bg-black opacity-40"></div>
+        <div className="absolute bottom-[100px] flex flex-col justify-center items-center text-center left-1/2 transform -translate-x-1/2">
+          <img src={theWedding} alt="" className='w-[200px]' />
+          <img src={galihWulan} alt="" className='pt-4 pb-10' />
+          <img src={kepada} alt="" className='pb-3 w-[200px]' />
+          <img src={tamu} alt="" className='w-[160px]'/>
+        </div>
       </div>
 
       <div className="relative">
         <img src={header} alt="" />
+        <div className="absolute top-[500px] w-full flex justify-center" data-aos="zoom-in">
+          <img src={galihDanWulan} className='w-[250px]' />
+        </div>
       </div>
 
       <div className="relative">
@@ -28,12 +54,12 @@ function App() {
         <img src={page2} alt="" />
         <div className="mempelai text-center absolute top-0 py-20">
           <div className="salam font-medium">
-            <h5 data-aos="fade-left" className='text-xl'>بسم الله الرحمن الرحيم صحيح</h5>
-            <h6 data-aos="fade-right" className='text-sm my-3 italic'>Assalamualaikum Warahmatullahi Wabarakatuh</h6>
-            <h6 data-aos="fade-left" className='text-sm px-5 italic'>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Tanpa mengurangi rasa hormat, dengan ini kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir pada asara pernikahan kami :</h6>
+            <h5 data-aos="fade-up" className='text-xl'>بسم الله الرحمن الرحيم صحيح</h5>
+            <h6 data-aos="fade-up" className='text-sm my-3 italic'>Assalamualaikum Warahmatullahi Wabarakatuh</h6>
+            <h6 data-aos="fade-up" className='text-sm px-5 italic'>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Tanpa mengurangi rasa hormat, dengan ini kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir pada asara pernikahan kami :</h6>
           </div>
           <img src={imgWanita} data-aos="fade-left"/>
-          <img src={imgWanita} data-aos="fade-right" className='mt-[-85px]'/>
+          <img src={imgPria} data-aos="fade-right" className='mt-[-85px]'/>
         </div>
       </div>
 
@@ -58,7 +84,7 @@ function App() {
         <div className=" box-card mt-10 bottom-[160px]">
           <h2 className='text-center text-2xl text-white font-medium italic mb-10' data-aos="fade-up">Our Love Story</h2>
 
-          <div className="pertama px-10" data-aos="fade-left">
+          <div className="pertama px-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2017</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Awal Pertemuan</h5>
@@ -68,7 +94,7 @@ function App() {
               <p className='text-[12px] font-medium mt-2'>Awal ketemu masa SMA ketika Galih masih kelas 12 dan Wulan kelas 10, tanpa sengaja bertemu di kantin sekolah pada saat jam istirahat dan dari pandangan pertama saat itu Galih mencari tahu tentang Wulan, dan kebetulan Wulan teman sekelas dengan sepupu nya Galih.</p>
             </div>
           </div>
-          <div className="pertama px-10 py-10" data-aos="fade-left">
+          <div className="pertama px-10 py-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2018</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Kencan Pertama</h5>
@@ -78,7 +104,7 @@ function App() {
               <p className='text-[12px] font-medium mt-2'>Setelah saling kenal dan dekat lalu kencan ke pantai pangandaran dan pada saat itu memutuskan untuk menjalin hubungan.</p>
             </div>
           </div>
-          <div className="pertama px-10" data-aos="fade-left">
+          <div className="pertama px-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2021</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Lamaran</h5>
@@ -95,7 +121,8 @@ function App() {
       <div className="relative">
         <img src={page5} alt="" />
         <img src={page6} alt="" />
-        <div className="absolute top-0 py-40 flex flex-col justify-center items-center gap-7">
+        <div className="absolute top-0 py-40 pt-60 flex flex-col justify-center items-center gap-7">
+            <img src={saveTheDate} className='w-[200px] mb-[30px]' data-aos="fade-up" />
             <img src={cardAkad} className='w-[85%]' data-aos="fade-up" />
             <img src={cardResepsi} className='w-[85%]' data-aos="fade-up" />
           </div>
@@ -103,7 +130,9 @@ function App() {
 
       {/* galery */}
       <div className="relative bg-background px-2 py-4">
-        <h4 className='text-center font-medium text-xl mb-10 text-white' data-aos="fade-up">Galery</h4>
+        <div className='flex justify-center mb-10' data-aos="fade-up">
+          <img src={titleGalery} className='w-[110px]' />
+        </div>
         <div className="grid grid-cols-2 gap-2">
           <div className="relative w-full h-[200px] rounded-lg overflow-hidden" data-aos="fade-right">
             <img src={galery1} className='absolute xs:top-[-20px] s:top-[-30px]' />
@@ -137,6 +166,70 @@ function App() {
           </div>
           <div className="relative overflow-hidden w-full h-[200px] rounded-lg" data-aos="fade-left">
             <img src={galery13} className='absolute xs:top-[-20px] s:top-[-30px]' />
+          </div>
+        </div>
+      </div>
+
+      {/* wedding gift */}
+      <div className="relative text-background">
+        <img src={page1} alt="" />
+        <img src={page2} alt="" />
+        <div className="absolute top-0 pt-[100px] px-10 text-sm font-medium">
+          <div className="flex justify-center" data-aos="zoom-in">
+            <img src={gift} className='w-[200px]' />
+          </div>
+          <p className='text-center mt-10' data-aos="zoom-in">Doa restu Anda merupakan karunia terindah bagi kami. Dan jika memberi adalah ungkapan tanda kasih, dengan senang hati kami menerima kado secara cashless melalui :</p>
+          <div className="payment text-center">
+            <div className="bca" data-aos="zoom-in">
+              <div className="logo flex justify-center mb-[-40px]">
+                <img src={mandiri} className='w-[200px]' />
+              </div>
+              <p>No. Rekening : 1390 0230 5526 6</p>
+              <p>An. Wulan Juliasih</p>
+              <button onClick={() => handleCopyClick()} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'>Salin No. Rekening</button>
+            </div>
+            <div className="gopay mt-[10px]" data-aos="zoom-in">
+              <div className="logo flex justify-center mb-[-40px]">
+                <img src={mandiri} className='w-[200px]' />
+              </div>
+              <p>No. Rekening : 5872 0102 1002 534</p>
+              <p>An. Wulan Juliasih</p>
+              <button onClick={() => handleCopyClick()} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'>Salin No. Rekening</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* google maps */}
+      <div className="relative px-5 py-5 pb-10 bg-background">
+        <h2 className='text-xl text-white text-center italic font-medium mb-5' data-aos="fade-up">Maps</h2>
+        <div className="maps border-2 border-white rounded-2xl overflow-hidden" data-aos="fade-up">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.6415419261057!2d108.79946727592448!3d-7.167371170330259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f77d4a784e5e7%3A0xfc5d156419fbea05!2sJl.%20Raya%20Salem%20-%20Bentar%20No.54%2C%20Salem%2C%20Kec.%20Salem%2C%20Kabupaten%20Brebes%2C%20Jawa%20Tengah%2052275!5e0!3m2!1sid!2sid!4v1717332622625!5m2!1sid!2sid" style={{border: 'border-0'}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className='w-full h-[400px]'></iframe>
+        </div>
+      </div>
+
+      {/* doa pengantin */}
+      <div className="relative text-center text-background">
+        <img src={page5} alt="" />
+        <div className="absolute top-0 mt-[150px] px-[20px] font-medium">
+          <div className="doa-pengantin" data-aos="zoom-in">
+            <h4>Doa Pengantin</h4>
+            <div className="doa">
+              <h4 className='my-5'>بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</h4>
+              <h4 className='text-sm italic'>"Mudah-mudahan Allah memberkahi engkau dalam segala hal (yang baik) dan mempersatukan kamu berdua dalam kebaikan"</h4>
+            </div>
+          </div>
+          <p className="text-sm mt-10" data-aos="zoom-in">
+            Merupakan suatu kehormatan dan kebahagianan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai. Atas kehadiran serta doa restunya, kami ucapkan terimaksih.
+          </p>
+        </div>
+
+        <div className="product absolute bottom-[50px]">
+          <div className="logo flex justify-center w-screen flex-col items-center">
+            <img src={jym} className='w-[150px]' />
+            <div className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5">
+              Whatsap
+            </div>
           </div>
         </div>
       </div>

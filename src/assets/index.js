@@ -5,6 +5,7 @@ import imgPertemuan from './pertemuan.png'
 import imgPink from './pink.png'
 import imgWeding from './home.png'
 import imgWanita from './wanita.png'
+import imgPria from './pria.png'
 import bg from './bg.png'
 import cardAkad from './cardakad.png'
 import cardResepsi from './cardresepsi.png'
@@ -33,7 +34,18 @@ import galery10 from './galery10.jpeg'
 import galery11 from './galery11.jpeg'
 import galery12 from './galery12.jpeg'
 import galery13 from './galery13.jpeg'
+import titleGalery from './titlegalery.png'
+
+import theWedding from './the-weding.png'
+import galihWulan from './galih-wulan.png'
+import kepada from './kepada.png'
+import tamu from './tamu.png'
+import mandiri from './mandiri.png'
+import gift from './gift.png'
+import saveTheDate from './savethedate.png'
+import jym from './jym.png'
+import galihDanWulan from './galihdanwulan.png'
 
 export {
-    galery1,galery2,galery3,galery4,galery5,galery6,galery7,galery8,galery9,galery10,galery11,galery12,galery13,story3,story2,story1,imgAwal,header,page1,page2,page3,page4,page5,page6,cardAkad,cardResepsi,bg,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita
+    galihDanWulan,jym,titleGalery,saveTheDate,gift,mandiri,theWedding,kepada,tamu,galihWulan,galery1,galery2,galery3,galery4,galery5,galery6,galery7,galery8,galery9,galery10,galery11,galery12,galery13,story3,story2,story1,imgAwal,header,page1,page2,page3,page4,page5,page6,cardAkad,cardResepsi,bg,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita,imgPria
 };
