@@ -11,6 +11,9 @@ export default {
         'xs': '375px',   // Custom breakpoint untuk layar kecil
         's': '425px'
       },
+      colors: {
+        background: '#475A80'
+      }
     },
   },
   plugins: [],

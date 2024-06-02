@@ -1,4 +1,4 @@
-import imgHome from './homepage.jpeg'
+
 import imgAkad from './akad.png'
 import imgMempelai from './mempelai.png'
 import imgPertemuan from './pertemuan.png'
@@ -8,7 +8,32 @@ import imgWanita from './wanita.png'
 import bg from './bg.png'
 import cardAkad from './cardakad.png'
 import cardResepsi from './cardresepsi.png'
+import header from './header.png'
+import page1 from './1.png'
+import page2 from './2.png'
+import page3 from './3.png'
+import page4 from './4.png'
+import page5 from './5.png'
+import page6 from './6.png'
+import imgAwal from './awal.jpeg'
+import story1 from './story1.jpeg'
+import story2 from './story2.jpeg'
+import story3 from './story3.jpeg'
+
+import galery1 from './galeri1.jpeg'
+import galery2 from './galeri2.jpeg'
+import galery3 from './galery3.jpeg'
+import galery4 from './galery4.jpeg'
+import galery5 from './galery5.jpeg'
+import galery6 from './galery6.jpeg'
+import galery7 from './galery7.jpeg'
+import galery8 from './galery8.jpeg'
+import galery9 from './galery9.jpeg'
+import galery10 from './galery10.jpeg'
+import galery11 from './galery11.jpeg'
+import galery12 from './galery12.jpeg'
+import galery13 from './galery13.jpeg'
 
 export {
-    cardAkad,cardResepsi,bg,imgHome,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita
+    galery1,galery2,galery3,galery4,galery5,galery6,galery7,galery8,galery9,galery10,galery11,galery12,galery13,story3,story2,story1,imgAwal,header,page1,page2,page3,page4,page5,page6,cardAkad,cardResepsi,bg,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita
 };

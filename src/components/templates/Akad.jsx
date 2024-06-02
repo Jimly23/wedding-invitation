@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from '../organisms/Section'
-import { imgAkad, imgHome, imgWeding } from '../../assets'
+import { imgAkad, imgWeding } from '../../assets'
 
 const Akad = () => {
   return (
