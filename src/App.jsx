@@ -14,7 +14,7 @@ function App() {
     Aos.init({duration: 2000});
   }, [])
   return (
-    <div className='relative sm:hidden'>
+    <div className='relative sm:hidden overflow-x-hidden'>
       <LandingPage />
       <img src={bg} className='w-screen' />
 
