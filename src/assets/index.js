@@ -45,7 +45,8 @@ import gift from './gift.png'
 import saveTheDate from './savethedate.png'
 import jym from './jym.png'
 import galihDanWulan from './galihdanwulan.png'
+import dana from './dana.jpg'
 
 export {
-    galihDanWulan,jym,titleGalery,saveTheDate,gift,mandiri,theWedding,kepada,tamu,galihWulan,galery1,galery2,galery3,galery4,galery5,galery6,galery7,galery8,galery9,galery10,galery11,galery12,galery13,story3,story2,story1,imgAwal,header,page1,page2,page3,page4,page5,page6,cardAkad,cardResepsi,bg,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita,imgPria
+    dana,galihDanWulan,jym,titleGalery,saveTheDate,gift,mandiri,theWedding,kepada,tamu,galihWulan,galery1,galery2,galery3,galery4,galery5,galery6,galery7,galery8,galery9,galery10,galery11,galery12,galery13,story3,story2,story1,imgAwal,header,page1,page2,page3,page4,page5,page6,cardAkad,cardResepsi,bg,imgAkad,imgMempelai,imgPertemuan,imgPink,imgWeding,imgWanita,imgPria
 };

@@ -2,50 +2,93 @@ import { useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import { bg, cardAkad, cardResepsi, galery1, galery10, galery11, galery12, galery13, galery2, galery3, galery4, galery5, galery6, galery7, galery8, galery9, galihDanWulan, galihWulan, gift, header, imgAkad, imgAwal, imgMempelai, imgPria, imgWanita, jym, kepada, mandiri, page1, page2, page3, page4, page5, page6, saveTheDate, story1, story2, story3, tamu, theWedding, titleGalery } from './assets'
+import { bg, cardAkad, cardResepsi, dana, galery1, galery10, galery11, galery12, galery13, galery2, galery3, galery4, galery5, galery6, galery7, galery8, galery9, galihDanWulan, galihWulan, gift, header, imgAkad, imgAwal, imgMempelai, imgPria, imgWanita, jym, kepada, mandiri, page1, page2, page3, page4, page5, page6, saveTheDate, story1, story2, story3, tamu, theWedding, titleGalery } from './assets'
 
 import sound from './assets/audio/musik.mp3'
+import { FaPause, FaPlay, FaWhatsapp } from 'react-icons/fa'
+import { FaMessage } from 'react-icons/fa6'
+import { HiDocument, HiOutlineDocument, HiOutlineMailOpen } from 'react-icons/hi'
+import Waktu from './components/templates/Waktu'
 
 function App() {
 
   const audioRef = useRef(new Audio(sound))
+  const [isPlay, setPlay] = useState(false)
+  const [startPlay, setStartPlay] = useState(true)
 
   useEffect(()=>{
     Aos.init({duration: 1500});
   }, [])
 
 
-  const [textCopy,setTextCopy] = useState('no rek');
+  const [textCopy,setTextCopy] = useState(false);
 
-  const handleCopyClick = () => {
-    navigator.clipboard.writeText(textCopy).then(() => {
-      alert(textCopy);
+  const handleCopyClick = (nomor) => {
+    navigator.clipboard.writeText(nomor).then(() => {
+      setTextCopy(true)
+      setTimeout(() => {
+        setTextCopy(false)
+      }, 2000);
     }).catch(err => {
       console.error('Gagal menyalin teks: ', err);
     });
   };
 
-  const play = () => {
+  const handleStartPlay = () => {
     audioRef.current.play()
+    setStartPlay(false)
   }
 
+  const play = () => {
+    if(isPlay){
+      audioRef.current.play()
+    }else{
+      audioRef.current.pause()
+    }
+    setPlay(!isPlay)
+  }
+
+  // whatsapp
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '6282329322353'; // Ganti dengan nomor telepon Anda
+    const message = 'Hello, Saya tertarik dengan jasa anda!'; // Ganti dengan pesan yang ingin Anda kirim
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+  };
+
   return(
-    <div onClick={play} className='overflow-x-hidden sm:hidden'>
+    <div className={`relative overflow-x-hidden sm:hidden`}>
       <div className="landingpage relative w-screen h-screen">
         <img src={imgAwal} className='w-full h-full object-cover object-top w-full h-full' />
         <div className="absolute top-0 w-full h-full bg-black opacity-40"></div>
-        <div className="absolute bottom-[100px] flex flex-col justify-center items-center text-center left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-[120px] flex flex-col justify-center items-center text-center left-1/2 transform -translate-x-1/2">
           <img src={theWedding} alt="" className='w-[200px]' />
           <img src={galihWulan} alt="" className='pt-4 pb-10' />
           <img src={kepada} alt="" className='pb-3 w-[200px]' />
-          <img src={tamu} alt="" className='w-[160px]'/>
+          <img src={tamu} alt="" className='w-[130px]'/>
         </div>
+        <div className={`${startPlay? 'flex':'hidden'} absolute top-0 w-full h-full bg-black bg-transparent items-center justify-center`}>
+          <div onClick={handleStartPlay} className="cursor-pointer items-center text-white border-2 text-sm font-medium w-[180px] flex justify-between px-5 py-2 rounded-full">
+            <div className="icon">
+              <HiOutlineMailOpen size={25}/>
+            </div>
+            <h4>Buka Undangan</h4>
+          </div>
+        </div>
+        {startPlay? 'hidden': 
+          <div onClick={play} className="fixed p-2 bottom-5 cursor-pointer text-white flex items-center justify-center left-1/2 transform -translate-x-1/2 z-[1] w-6 h-6 bg-background rounded-full">
+            {isPlay? <FaPlay />:<FaPause />}
+          </div>
+        }
       </div>
 
-      <div className="relative">
+      <div className="relative flex justify-center">
         <img src={header} alt="" />
-        <div className="absolute top-[500px] w-full flex justify-center" data-aos="zoom-in">
+        <div className="absolute bottom-[180px]" data-aos="zoom-in">
           <img src={galihDanWulan} className='w-[250px]' />
+        </div>
+        <div className='absolute bottom-[100px] w-full px-[30px]' data-aos="fade-up">
+          <Waktu />
         </div>
       </div>
 
@@ -82,7 +125,7 @@ function App() {
         </div>
 
         <div className=" box-card mt-10 bottom-[160px]">
-          <h2 className='text-center text-2xl text-white font-medium italic mb-10' data-aos="fade-up">Our Love Story</h2>
+          <h2 className='text-center text-2xl text-white font-medium italic mb-10' data-aos="zoom-in">Our Love Story</h2>
 
           <div className="pertama px-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2017</h5>
@@ -175,26 +218,33 @@ function App() {
         <img src={page1} alt="" />
         <img src={page2} alt="" />
         <div className="absolute top-0 pt-[100px] px-10 text-sm font-medium">
+          {textCopy && 
+            <div className="copytext fixed top-10 bg-background text-white left-1/2 transform -translate-x-1/2 px-5 py-1 rounded-full z-[9]">
+              Berhasil di Salin
+            </div>
+          }
           <div className="flex justify-center" data-aos="zoom-in">
             <img src={gift} className='w-[200px]' />
           </div>
           <p className='text-center mt-10' data-aos="zoom-in">Doa restu Anda merupakan karunia terindah bagi kami. Dan jika memberi adalah ungkapan tanda kasih, dengan senang hati kami menerima kado secara cashless melalui :</p>
           <div className="payment text-center">
-            <div className="bca" data-aos="zoom-in">
+            <div className="mandiri" data-aos="zoom-in">
               <div className="logo flex justify-center mb-[-40px]">
                 <img src={mandiri} className='w-[200px]' />
               </div>
-              <p>No. Rekening : 1390 0230 5526 6</p>
-              <p>An. Wulan Juliasih</p>
-              <button onClick={() => handleCopyClick()} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'>Salin No. Rekening</button>
+              <p>No. Rekening : 1390023055266</p>
+              <p>Wulan Juliasih</p>
+              <button onClick={() => handleCopyClick('1390023055266')} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'><h3 className='flex items-center'><HiOutlineDocument className='me-1' size={20}/> Salin No. Rekening</h3></button>
             </div>
-            <div className="gopay mt-[10px]" data-aos="zoom-in">
-              <div className="logo flex justify-center mb-[-40px]">
-                <img src={mandiri} className='w-[200px]' />
+            <div className="dana mt-[40px]" data-aos="zoom-in">
+              <div className="logo flex justify-center mb-[10px]">
+                <img src={dana} className='w-[60px]' />
               </div>
-              <p>No. Rekening : 5872 0102 1002 534</p>
-              <p>An. Wulan Juliasih</p>
-              <button onClick={() => handleCopyClick()} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'>Salin No. Rekening</button>
+              <p>No. Dana : 083126746504</p>
+              <p>Galih Indrawan</p>
+              <button onClick={() => handleCopyClick('083126746504')} className='py-1 px-4 bg-background rounded-full text-white cursor-pointer mt-3'>
+              <h3 className='flex items-center'><HiOutlineDocument className='me-1' size={20}/> Salin No. Dana</h3>
+              </button>
             </div>
           </div>
         </div>
@@ -226,8 +276,10 @@ function App() {
 
         <div className="product absolute bottom-[50px]">
           <div className="logo flex justify-center w-screen flex-col items-center">
-            <img src={jym} className='w-[150px]' />
-            <div className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5">
+            <h6 className='text-sm mb-1 font-medium'>By</h6>
+            <img src={jym} className='w-[120px]' />
+            <div onClick={handleWhatsAppClick} className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5 flex items-center text-sm cursor-pointer">
+              <FaWhatsapp className='me-2' size={18}/>
               Whatsap
             </div>
           </div>
