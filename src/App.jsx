@@ -20,6 +20,16 @@ function App() {
     Aos.init({duration: 1500});
   }, [])
 
+  useEffect(() => {
+    if (!startPlay) {
+      // Enable scroll
+      document.body.style.overflow = 'auto';
+    } else {
+      // Disable scroll
+      document.body.style.overflow = 'hidden';
+    }
+  }, [startPlay]);
+
 
   const [textCopy,setTextCopy] = useState(false);
 
@@ -49,9 +59,9 @@ function App() {
   }
 
   // whatsapp
-  const handleWhatsAppClick = () => {
-    const phoneNumber = '6282329322353'; // Ganti dengan nomor telepon Anda
-    const message = 'Hello, Saya tertarik dengan jasa anda!'; // Ganti dengan pesan yang ingin Anda kirim
+  const handleWhatsAppClick = (phoneNumber) => {
+    // const phoneNumber = '6282329322353'; 
+    const message = ''; 
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
   };
@@ -154,7 +164,7 @@ function App() {
               <div className="img relative w-full h-[150px] xs:h-[170px] s:h-[190px] border rounded-lg overflow-hidden">
               <img src={story3} className='absolute top-[-135px] xs:top-[-150px] s:top-[-170px]' />
               </div>
-              <p className='text-[12px] font-medium mt-2'>Setelah saling kenal dan dekat lalu kencan ke pantai pangandaran dan pada saat itu memutuskan untuk menjalin hubungan.</p>
+              <p className='text-[12px] font-medium mt-2'>Pada tahun 2021 kami memutuskan untuk lamaran dan menjalin hubungan serius.</p>
             </div>
           </div>
         </div>
@@ -248,6 +258,16 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className="absolute bottom-[300px]" data-aos="zoom-in">
+          <div className="logo flex justify-center w-screen flex-col items-center">
+            <h3 className='text-center font-medium text-lg'>Konfirmasi Kehadiran</h3>
+            <div onClick={()=>handleWhatsAppClick('6282329322353')} className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5 flex items-center text-sm cursor-pointer">
+              <FaWhatsapp className='me-2' size={18}/>
+              Whatsap
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* google maps */}
@@ -273,16 +293,18 @@ function App() {
             Merupakan suatu kehormatan dan kebahagianan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai. Atas kehadiran serta doa restunya, kami ucapkan terimaksih.
           </p>
         </div>
+      </div>
 
-        <div className="product absolute bottom-[50px]">
-          <div className="logo flex justify-center w-screen flex-col items-center">
-            <h6 className='text-sm mb-1 font-medium'>By</h6>
-            <img src={jym} className='w-[120px]' />
-            <div onClick={handleWhatsAppClick} className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5 flex items-center text-sm cursor-pointer">
-              <FaWhatsapp className='me-2' size={18}/>
-              Whatsap
-            </div>
-          </div>
+      {/* Contact */}
+      <div className="relative text-background font-medium">
+        <img src={page6} alt="" />
+        <div data-aos="fade-up" className="absolute bottom-[300px] left-1/3 transform  text-center">
+          <h5 className='text-sm'>By</h5>
+          <h1 className='pt-1 pb-5 text-xl'>JymInvite</h1>
+          <button onClick={()=>handleWhatsAppClick('6282329322353')} className='flex items-center text-sm py-1 font-medium bg-background px-4 rounded-full text-white'>
+            <FaWhatsapp  size={18} className='me-[5px]'/>
+            <h6>Whatsapp</h6>
+          </button>
         </div>
       </div>
     </div>
