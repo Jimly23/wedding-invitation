@@ -262,7 +262,7 @@ function App() {
         <div className="absolute bottom-[300px]" data-aos="zoom-in">
           <div className="logo flex justify-center w-screen flex-col items-center">
             <h3 className='text-center font-medium text-lg'>Konfirmasi Kehadiran</h3>
-            <div onClick={()=>handleWhatsAppClick('6282329322353')} className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5 flex items-center text-sm cursor-pointer">
+            <div onClick={()=>handleWhatsAppClick('6283861229081')} className="whatsapp bg-background text-white px-5 py-1 rounded-full font-medium mt-5 flex items-center text-sm cursor-pointer">
               <FaWhatsapp className='me-2' size={18}/>
               Whatsap
             </div>
