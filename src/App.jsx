@@ -4,7 +4,7 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { bg, cardAkad, cardResepsi, dana, galery1, galery10, galery11, galery12, galery13, galery2, galery3, galery4, galery5, galery6, galery7, galery8, galery9, galihDanWulan, galihWulan, gift, header, imgAkad, imgAwal, imgMempelai, imgPria, imgWanita, jym, kepada, mandiri, page1, page2, page3, page4, page5, page6, saveTheDate, story1, story2, story3, tamu, theWedding, titleGalery } from './assets'
 
-import sound from './assets/audio/musik.mp3'
+import sound from './assets/audio/janjisuci.mp3'
 import { FaPause, FaPlay, FaWhatsapp } from 'react-icons/fa'
 import { FaMessage } from 'react-icons/fa6'
 import { HiDocument, HiOutlineDocument, HiOutlineMailOpen } from 'react-icons/hi'
@@ -67,8 +67,8 @@ function App() {
           <img src={kepada} alt="" className='pb-3 w-[200px]' />
           <img src={tamu} alt="" className='w-[130px]'/>
         </div>
-        <div className={`${startPlay? 'flex':'hidden'} absolute top-0 w-full h-full bg-black bg-transparent items-center justify-center`}>
-          <div onClick={handleStartPlay} className="cursor-pointer items-center text-white border-2 text-sm font-medium w-[180px] flex justify-between px-5 py-2 rounded-full">
+        <div className={`${startPlay? 'flex':'hidden'} fixed z-[1] top-0 w-full h-full bg-black bg-black bg-opacity-50 items-center justify-center`}>
+          <div onClick={handleStartPlay} className="cursor-pointer items-center text-white bg-background border-2 text-sm font-medium w-[180px] flex justify-between px-5 py-2 rounded-full">
             <div className="icon">
               <HiOutlineMailOpen size={25}/>
             </div>
@@ -84,10 +84,10 @@ function App() {
 
       <div className="relative flex justify-center">
         <img src={header} alt="" />
-        <div className="absolute bottom-[180px]" data-aos="zoom-in">
+        <div className="absolute bottom-[185px]" data-aos="zoom-in">
           <img src={galihDanWulan} className='w-[250px]' />
         </div>
-        <div className='absolute bottom-[100px] w-full px-[30px]' data-aos="fade-up">
+        <div className='absolute bottom-[120px] w-full px-[30px]' data-aos="fade-up">
           <Waktu />
         </div>
       </div>
@@ -127,7 +127,7 @@ function App() {
         <div className=" box-card mt-10 bottom-[160px]">
           <h2 className='text-center text-2xl text-white font-medium italic mb-10' data-aos="zoom-in">Our Love Story</h2>
 
-          <div className="pertama px-10 text-background" data-aos="fade-left">
+          <div className=" px-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2017</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Awal Pertemuan</h5>
@@ -137,7 +137,7 @@ function App() {
               <p className='text-[12px] font-medium mt-2'>Awal ketemu masa SMA ketika Galih masih kelas 12 dan Wulan kelas 10, tanpa sengaja bertemu di kantin sekolah pada saat jam istirahat dan dari pandangan pertama saat itu Galih mencari tahu tentang Wulan, dan kebetulan Wulan teman sekelas dengan sepupu nya Galih.</p>
             </div>
           </div>
-          <div className="pertama px-10 py-10 text-background" data-aos="fade-left">
+          <div className=" px-10 py-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2018</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Kencan Pertama</h5>
@@ -147,12 +147,12 @@ function App() {
               <p className='text-[12px] font-medium mt-2'>Setelah saling kenal dan dekat lalu kencan ke pantai pangandaran dan pada saat itu memutuskan untuk menjalin hubungan.</p>
             </div>
           </div>
-          <div className="pertama px-10 text-background" data-aos="fade-left">
+          <div className=" px-10 text-background" data-aos="fade-left">
             <h5 className='text-white font-medium italic'>2021</h5>
             <div className="card mt-3 bg-white px-3 py-3 rounded-lg">
               <h5 className='text-sm font-medium mb-2'>Lamaran</h5>
               <div className="img relative w-full h-[150px] xs:h-[170px] s:h-[190px] border rounded-lg overflow-hidden">
-              <img src={story3} className='absolute top-[-115px] xs:top-[-150px] s:top-[-170px]' />
+              <img src={story3} className='absolute top-[-135px] xs:top-[-150px] s:top-[-170px]' />
               </div>
               <p className='text-[12px] font-medium mt-2'>Setelah saling kenal dan dekat lalu kencan ke pantai pangandaran dan pada saat itu memutuskan untuk menjalin hubungan.</p>
             </div>
