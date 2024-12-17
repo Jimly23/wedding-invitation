@@ -188,8 +188,8 @@ const AdinEva = () => {
             className="w-[200px] mb-[30px]"
             data-aos="fade-up"
           />
-          <img src={resepsi} className="w-[85%]" data-aos="fade-up" />
           <img src={akad} className="w-[85%]" data-aos="fade-up" />
+          <img src={resepsi} className="w-[85%]" data-aos="fade-up" />
         </div>
       </div>
 
@@ -244,14 +244,6 @@ const AdinEva = () => {
           className="maps border-2 border-white rounded-2xl overflow-hidden"
           data-aos="fade-up"
         >
-          {/* <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.6415419261057!2d108.79946727592448!3d-7.167371170330259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f77d4a784e5e7%3A0xfc5d156419fbea05!2sJl.%20Raya%20Salem%20-%20Bentar%20No.54%2C%20Salem%2C%20Kec.%20Salem%2C%20Kabupaten%20Brebes%2C%20Jawa%20Tengah%2052275!5e0!3m2!1sid!2sid!4v1717332622625!5m2!1sid!2sid"
-            style={{ border: "border-0" }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-[400px]"
-          ></iframe> */}
           <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3957.0820147830395!2d109.08185857500051!3d-7.344687092663995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjAnNDAuOSJTIDEwOcKwMDUnMDQuMCJF!5e0!3m2!1sid!2sid!4v1734440553852!5m2!1sid!2sid" style={{ border: "border-0" }}
             allowFullScreen=""
             loading="lazy"
