@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import bgAwal from "../assets/adin/bg-awal.jpg";
-import bgDua from "../assets/adin/bg-2.png";
+import bg from "../assets/albert/background.png";
+// import bgDua from "../assets/adin/bg-2.png";
 import title from "../assets/adin/title.png";
-import title2 from "../assets/adin/title2.png";
-import pria from "../assets/adin/pria.png";
-import wanita from "../assets/adin/wanita.png";
+import title2 from "../assets/albert/namaa.png";
+import pria from "../assets/albert/card-pria.png";
+import wanita from "../assets/albert/card-wanita.png";
 import bca from "../assets/adin/bca.png";
 import resepsi from "../assets/adin/resepsi.png";
-import akad from "../assets/adin/akad.png";
+import akad from "../assets/albert/akad.png";
+import bgDua from "../assets/albert/bgdua.png";
 import {
   gift,
   page1,
@@ -89,11 +90,11 @@ const DindaAlbert = () => {
   return (
     <div className={`relative overflow-x-hidden sm:hidden`}>
       <div className="landingpage relative w-screen h-screen">
-        <img src={bgAwal} className="w-full h-full object-cover object-top" />
-        <div className="absolute top-0 w-full h-full bg-black opacity-40"></div>
-        <div className="absolute bottom-[120px] flex flex-col justify-center items-center text-center left-1/2 transform -translate-x-1/2">
+        <img src={bg} className="w-full h-full object-cover object-top" />
+        <div className="absolute top-0 w-full h-full"></div>
+        {/* <div className="absolute bottom-[120px] flex flex-col justify-center items-center text-center left-1/2 transform -translate-x-1/2">
           <img src={title} alt="" className="w-[250px]" />
-        </div>
+        </div> */}
         <div
           className={`${
             startPlay ? "flex" : "hidden"
@@ -124,7 +125,7 @@ const DindaAlbert = () => {
       <div className="relative flex justify-center">
         <img src={bgDua} alt="" />
         <div className="absolute bottom-[185px]" data-aos="zoom-in">
-          <img src={title2} className="w-[160px]" />
+          <img src={title2} className="w-[280px]" />
         </div>
         <div
           className="absolute bottom-[120px] w-full px-[30px] mx-auto"
@@ -152,8 +153,8 @@ const DindaAlbert = () => {
               pernikahan kami :
             </h6>
           </div>
-          <img src={wanita} data-aos="fade-left" />
-          <img src={pria} data-aos="fade-right" className="mt-[-85px]" />
+          <img src={wanita} className="w-[85%] mx-auto mt-[100px]" data-aos="fade-up" />
+          <img src={pria} className="w-[85%] mx-auto mt-[85px]" data-aos="fade-up"/>
         </div>
       </div>
 
@@ -189,7 +190,7 @@ const DindaAlbert = () => {
             data-aos="fade-up"
           />
           <img src={akad} className="w-[85%]" data-aos="fade-up" />
-          <img src={resepsi} className="w-[85%]" data-aos="fade-up" />
+          {/* <img src={resepsi} className="w-[85%]" data-aos="fade-up" /> */}
         </div>
       </div>
 
@@ -244,7 +245,7 @@ const DindaAlbert = () => {
           className="maps border-2 border-white rounded-2xl overflow-hidden"
           data-aos="fade-up"
         >
-          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3957.0820147830395!2d109.08185857500051!3d-7.344687092663995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjAnNDAuOSJTIDEwOcKwMDUnMDQuMCJF!5e0!3m2!1sid!2sid!4v1734440553852!5m2!1sid!2sid" style={{ border: "border-0" }}
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3963.511661129652!2d106.52624127499347!3d-6.583136093410436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzQnNTkuMyJTIDEwNsKwMzEnNDMuNyJF!5e0!3m2!1sid!2sid!4v1736692978972!5m2!1sid!2sid" style={{ border: "border-0" }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
